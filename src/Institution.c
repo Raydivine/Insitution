@@ -62,28 +62,6 @@ int isUniversityCollege (void *elem1, void *type){
 
 int Institution_select( LinkedList *inputList, LinkedList *outputList, void *criterion, int(*compare)( void *, void *) ){
 
-int element = 0;
-	Stack *stack = Stack_create();
-	Institution *dataRemove, *dataOutput;
-
-	if((Institution *)List_removeHead(inputList) == NULL)
-		return element;
-
-	//printf("type: %d\n", *type);
-	do{
-		dataRemove = (Institution *)List_removeHead(inputList);
-	//printf("dataRemove->type: %d\n", dataRemove->type);
-		if(compare(dataRemove, criterion))
-		{
-			Stack_push(stack, dataRemove);
-			dataOutput = (Institution *)Stack_pop(stack);
-			List_addTail(outputList, dataOutput);
-			element++;
-		}
-	}while((Institution *)List_removeHead(inputList) != NULL);
-
-	return element;
-
 
 }
 
