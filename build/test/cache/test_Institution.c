@@ -90,19 +90,43 @@ void test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC(void
 
 
 
-void test_isUniversityCollege_given_TARUC_should_return_1(void){
+
+
+void test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0(void){
 
 
 
    Institution TARUC= { .name = "TARUC",
 
-                          .type = 3 };
+                          .type = 2 };
+
+
+
+   Institution UTAR= { .name = "UTAR",
+
+                          .type = 1 };
 
 
 
 
 
 
+
+  InstitutionType type= UniversityCollege;
+
+  int result;
+
+
+
+  result = isUniversityCollege (&TARUC, &type);
+
+  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)65, UNITY_DISPLAY_STYLE_INT);
+
+
+
+  result = isUniversityCollege (&UTAR, &type);
+
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)68, UNITY_DISPLAY_STYLE_INT);
 
 
 

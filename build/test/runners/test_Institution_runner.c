@@ -41,7 +41,7 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC(void);
-extern void test_isUniversityCollege_given_TARUC_should_return_1(void);
+extern void test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0(void);
 extern void test_Institution_select_that_can_slect_the_school_InstitutionTypr(void);
 
 
@@ -82,8 +82,8 @@ int main(void)
   Unity.TestFile = "test_Institution.c";
   UnityBegin();
   RUN_TEST(test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC, 16);
-  RUN_TEST(test_isUniversityCollege_given_TARUC_should_return_1, 50);
-  RUN_TEST(test_Institution_select_that_can_slect_the_school_InstitutionTypr, 63);
+  RUN_TEST(test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0, 51);
+  RUN_TEST(test_Institution_select_that_can_slect_the_school_InstitutionTypr, 75);
 
   return (UnityEnd());
 }

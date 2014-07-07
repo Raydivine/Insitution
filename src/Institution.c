@@ -57,9 +57,9 @@ int compare(void *v1, void *v2) {
 int isUniversityCollege (void *elem1, void *type){
 
 
-          Institution  *ptrdata= ( Institution *) elem1 ;
+      Institution  *ptrdata= ( Institution *) elem1 ;
 	  InstitutionType *SchoolType = ( InstitutionType *)type;
-	  
+	  printf("Name:  %s\n", ptrdata->name);
 	  
 	  if (ptrdata->type == *SchoolType)
 	  return 1;
@@ -69,9 +69,6 @@ int isUniversityCollege (void *elem1, void *type){
 
 	 
 }
-
-
-
 
 
 
