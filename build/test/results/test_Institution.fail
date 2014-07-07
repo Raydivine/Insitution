@@ -1,0 +1,16 @@
+---
+:source:
+  :path: test
+  :file: test_Institution.c
+:successes: []
+:failures:
+- :test: test_Institution_reverse_given_TARC_TARUC_UTAR_should_reverse_become_UTAR_TARUC_TARC
+  :line: 15
+  :message: Function 'List_addTail' called more times than expected.
+:ignores: []
+:counts:
+  :total: 1
+  :passed: 0
+  :failed: 1
+  :ignored: 0
+:stdout: []
