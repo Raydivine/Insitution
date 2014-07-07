@@ -75,38 +75,52 @@ void test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0(void
 void test_Institution_select_that_can_slect_the_school_InstitutionTypr(void)
 {
   
- Institution TARUC= {    .name = "TARUC",
-                         .address ="abc",
-						 .postcode=01000,
-						 .telephone=001,
-						 .type=3,
-						 .yearEstablished=1940
-					};
-
-   Institution MMU= {    .name = "MMU",
-                         .address ="abc",
-						 .postcode=10000,
-						 .telephone=000,
-						 .type=3,
-						 .yearEstablished=2013
-					};
-					
-	
+   Institution TARUC= {   .name = "TARUC",
+                          .type = 2       };
+						  
    Institution UTAR= {   .name = "UTAR",
-                         .address ="abc",
-						 .postcode=10000,
-						 .telephone=000,
-						 .type=2,
-						 .yearEstablished=2002
-					};
-					
+                          .type = 1      };
+		
+
+    InstitutionType type= UniversityCollege;					  
+	int result;
+	
+		
 	LinkedList inputList;
     LinkedList outputList;
     Stack stack;
 	
+	inputList.head = &TARUC;
+	inputList.tail = &UTAR;
 
-		
-//Institution_select( &inputList, &outputList, &Institution.type , &compare(&MMU.type, &TARUC.type) );
+	
+	Stack_create_ExpectAndReturn(&stack);
+	
+	List_removeHead_ExpectAndReturn(&inputList, &TARUC);
+    Stack_push_Expect(&stack, &TARUC);
+	List_removeHead_ExpectAndReturn(&inputList, &UTAR);
+    Stack_push_Expect(&stack, &UTAR);
+	
+	
+	
+	List_removeHead_ExpectAndReturn(&inputList, NULL);
+
+	
+	
+	Stack_pop_ExpectAndReturn(&stack, &UTAR);
+	List_addTail_Expect(&outputList, &UTAR);
+	Stack_pop_ExpectAndReturn(&stack, &TARUC);
+	List_addTail_Expect(&outputList, &TARUC);
+	
+	
+	List_removeHead_ExpectAndReturn(&inputList, NULL);
+	
+	
+	result = Institution_select(&inputList, &outputList, &type, isUniversityCollege);
+	TEST_ASSERT_EQUAL(2, result);
+	
+
+	
 				
 }
 

@@ -146,53 +146,25 @@ void test_Institution_select_that_can_slect_the_school_InstitutionTypr(void)
 
 
 
- Institution TARUC= { .name = "TARUC",
+   Institution TARUC= { .name = "TARUC",
 
-                         .address ="abc",
-
-       .postcode=01000,
-
-       .telephone=001,
-
-       .type=3,
-
-       .yearEstablished=1940
-
-     };
-
-
-
-   Institution MMU= { .name = "MMU",
-
-                         .address ="abc",
-
-       .postcode=10000,
-
-       .telephone=000,
-
-       .type=3,
-
-       .yearEstablished=2013
-
-     };
-
-
+                          .type = 2 };
 
 
 
    Institution UTAR= { .name = "UTAR",
 
-                         .address ="abc",
+                          .type = 1 };
 
-       .postcode=10000,
 
-       .telephone=000,
 
-       .type=2,
 
-       .yearEstablished=2002
 
-     };
+    InstitutionType type= UniversityCollege;
+
+ int result;
+
+
 
 
 
@@ -203,6 +175,62 @@ void test_Institution_select_that_can_slect_the_school_InstitutionTypr(void)
     Stack stack;
 
 
+
+ inputList.head = &TARUC;
+
+ inputList.tail = &UTAR;
+
+
+
+
+
+ Stack_create_CMockExpectAndReturn(97, &stack);
+
+
+
+ List_removeHead_CMockExpectAndReturn(99, &inputList, &TARUC);
+
+    Stack_push_CMockExpect(100, &stack, &TARUC);
+
+ List_removeHead_CMockExpectAndReturn(101, &inputList, &UTAR);
+
+    Stack_push_CMockExpect(102, &stack, &UTAR);
+
+
+
+
+
+
+
+ List_removeHead_CMockExpectAndReturn(106, &inputList, ((void *)0));
+
+
+
+
+
+
+
+ Stack_pop_CMockExpectAndReturn(110, &stack, &UTAR);
+
+ List_addTail_CMockExpect(111, &outputList, &UTAR);
+
+ Stack_pop_CMockExpectAndReturn(112, &stack, &TARUC);
+
+ List_addTail_CMockExpect(113, &outputList, &TARUC);
+
+
+
+
+
+ List_removeHead_CMockExpectAndReturn(116, &inputList, ((void *)0));
+
+
+
+
+
+ result = Institution_select(&inputList, &outputList, &type, isUniversityCollege);
+
+ UnityAssertEqualNumber((_U_SINT)((2)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)120, UNITY_DISPLAY_STYLE_INT);
 
 
 

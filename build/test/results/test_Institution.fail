@@ -2,15 +2,29 @@
 :source:
   :path: test
   :file: test_Institution.c
-:successes: []
+:successes:
+- :test: test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC
+  :line: 16
+  :message: ''
+- :test: test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0
+  :line: 51
+  :message: ''
 :failures:
-- :test: test_Institution_reverse_given_TARC_TARUC_UTAR_should_reverse_become_UTAR_TARUC_TARC
-  :line: 15
-  :message: Function 'List_addTail' called more times than expected.
+- :test: test_Institution_select_that_can_slect_the_school_InstitutionTypr
+  :line: 101
+  :message: Function 'List_removeHead' called earlier than expected.
 :ignores: []
 :counts:
-  :total: 1
-  :passed: 0
+  :total: 3
+  :passed: 2
   :failed: 1
   :ignored: 0
-:stdout: []
+:stdout:
+- 'Name:  TARC'
+- 'Name:  MMU'
+- 'Address:  00000000'
+- 'Name : MMU'
+- 'Name : TARC'
+- 'Address : 00000000'
+- 'Name:  TARUC'
+- 'Name:  UTAR'
