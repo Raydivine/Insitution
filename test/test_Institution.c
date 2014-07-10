@@ -116,31 +116,43 @@ void test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_sh
 }
 
 
-void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCollege_should_return_3(void){
+void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_University_should_return_3(void){
 
      int result;
   
  
  	Institution MMU = 	{.type = University };
 	Institution USM = 	{.type = University };
-  
-  
-	InstitutionType type= UniversityCollege;	
-		
-	List_removeHead_ExpectAndReturn(&inputList , &UTAR);
-	List_removeHead_ExpectAndReturn(&inputList , &MMU);
-	List_removeHead_ExpectAndReturn(&inputList , &USM);
-	List_addTail_Expect(&outputList , &UTAR);
-	List_addTail_Expect(&outputList , &MMU);
-	List_addTail_Expect(&outputList , &USM);
 	
+  
+  
+	InstitutionType type= University;	
+	
+	
+	List_removeHead_ExpectAndReturn(&inputList , &UTAR);
+	List_addTail_Expect(&outputList , &UTAR);
+	List_removeHead_ExpectAndReturn(&inputList , &MMU);
+	List_addTail_Expect(&outputList , &MMU);
+	List_removeHead_ExpectAndReturn(&inputList , &USM);
+	List_addTail_Expect(&outputList , &USM);
+
 	List_removeHead_ExpectAndReturn(&inputList , NULL);
+	
+	
 
 	result = Institution_select(&inputList,&outputList,&type,isUniversityCollege);
 	TEST_ASSERT_EQUAL(3 , result);
 }
 
 
+void test_wasEstablishedBefore_given_TARUC_year_2013_should_return_1(void){
+	
+    int result=0 , year = 2013;
+	
+	result = wasEstablishedBefore(&TARUC , &year);
+	
+	TEST_ASSERT_EQUAL(1 , result);
+}
 
 
 

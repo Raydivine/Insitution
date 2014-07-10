@@ -4,27 +4,37 @@
   :file: test_Institution.c
 :successes:
 - :test: test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC
-  :line: 16
+  :line: 53
   :message: ''
-- :test: test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0
-  :line: 51
+- :test: test_isUniversityCollege_given_TARUC_UTAR_should_return_1_and_return_0
+  :line: 76
   :message: ''
-- :test: test_Institution_select_that_can_slect_the_school_InstitutionTypr
-  :line: 75
+- :test: test_isUniversityCollege_given_TARUC_UTAR_request_college_should_return_0
+  :line: 90
+  :message: ''
+- :test: test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_should_return_1
+  :line: 104
+  :message: ''
+- :test: test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_University_should_return_3
+  :line: 119
+  :message: ''
+- :test: test_wasEstablishedBefore_given_TARUC_year_2013_should_return_1
+  :line: 148
+  :message: ''
+- :test: test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception
+  :line: 159
   :message: ''
 :failures: []
 :ignores: []
 :counts:
-  :total: 3
-  :passed: 3
+  :total: 7
+  :passed: 7
   :failed: 0
   :ignored: 0
 :stdout:
 - 'Name:  TARC'
-- 'Name:  MMU'
+- 'Name:  UTAR'
 - 'Address:  00000000'
-- 'Name : MMU'
+- 'Name : UTAR'
 - 'Name : TARC'
 - 'Address : 00000000'
-- 'Name:  TARUC'
-- 'Name:  UTAR'

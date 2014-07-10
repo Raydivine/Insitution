@@ -44,7 +44,8 @@ extern void test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TA
 extern void test_isUniversityCollege_given_TARUC_UTAR_should_return_1_and_return_0(void);
 extern void test_isUniversityCollege_given_TARUC_UTAR_request_college_should_return_0(void);
 extern void test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_should_return_1(void);
-extern void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCollege_should_return_3(void);
+extern void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_University_should_return_3(void);
+extern void test_wasEstablishedBefore_given_TARUC_year_2013_should_return_1(void);
 extern void test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception(void);
 
 
@@ -88,8 +89,9 @@ int main(void)
   RUN_TEST(test_isUniversityCollege_given_TARUC_UTAR_should_return_1_and_return_0, 76);
   RUN_TEST(test_isUniversityCollege_given_TARUC_UTAR_request_college_should_return_0, 90);
   RUN_TEST(test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_should_return_1, 104);
-  RUN_TEST(test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCollege_should_return_3, 119);
-  RUN_TEST(test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception, 151);
+  RUN_TEST(test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_University_should_return_3, 119);
+  RUN_TEST(test_wasEstablishedBefore_given_TARUC_year_2013_should_return_1, 148);
+  RUN_TEST(test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception, 159);
 
   return (UnityEnd());
 }

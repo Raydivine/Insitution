@@ -229,7 +229,7 @@ void test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_sh
 
 
 
-void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCollege_should_return_3(void){
+void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_University_should_return_3(void){
 
 
 
@@ -247,33 +247,33 @@ void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCol
 
 
 
- InstitutionType type= UniversityCollege;
+
+
+ InstitutionType type= University;
 
 
 
- List_removeHead_CMockExpectAndReturn(130, &inputList, &UTAR);
 
-  List_removeHead_CMockExpectAndReturn(131, &inputList, &MMU);
 
-  List_removeHead_CMockExpectAndReturn(132, &inputList, &USM);
+ List_removeHead_CMockExpectAndReturn(132, &inputList, &UTAR);
 
  List_addTail_CMockExpect(133, &outputList, &UTAR);
 
+ List_removeHead_CMockExpectAndReturn(134, &inputList, &MMU);
+
+ List_addTail_CMockExpect(135, &outputList, &MMU);
+
+ List_removeHead_CMockExpectAndReturn(136, &inputList, &USM);
+
+ List_addTail_CMockExpect(137, &outputList, &USM);
+
+
+
+ List_removeHead_CMockExpectAndReturn(139, &inputList, ((void *)0));
 
 
 
 
- List_addTail_CMockExpect(136, &outputList, &MMU);
-
-
-
-
-
- List_addTail_CMockExpect(139, &outputList, &USM);
-
-
-
- List_removeHead_CMockExpectAndReturn(141, &inputList, ((void *)0));
 
 
 
@@ -286,6 +286,22 @@ void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCol
 
 
 
+
+void test_wasEstablishedBefore_given_TARUC_year_2013_should_return_1(void){
+
+
+
+  int result=0 , year = 2013;
+
+
+
+  result = wasEstablishedBefore(&TARUC , &year);
+
+
+
+  UnityAssertEqualNumber((_U_SINT)((1)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)154, UNITY_DISPLAY_STYLE_INT);
+
+ }
 
 
 
@@ -313,7 +329,7 @@ void test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception(void){
 
  { result = wasEstablishedBefore(&ABC , &year);
 
-  UnityFail( ("Should throw Invalid_yearEstablished exception"), (_U_UINT)161);;
+  UnityFail( ("Should throw Invalid_yearEstablished exception"), (_U_UINT)169);;
 
  }
 
@@ -321,9 +337,9 @@ void test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception(void){
 
  else { } CExceptionFrames[MY_ID].Exception = (0x5A5A5A5A); } else { err = CExceptionFrames[MY_ID].Exception; err=err; } CExceptionFrames[MY_ID].pFrame = PrevFrame; } if (CExceptionFrames[(0)].Exception != (0x5A5A5A5A))
 
- { UnityAssertEqualNumber((_U_SINT)((Invalid_yearEstablished)), (_U_SINT)((err)), (((void *)0)), (_U_UINT)165, UNITY_DISPLAY_STYLE_INT);
+ { UnityAssertEqualNumber((_U_SINT)((Invalid_yearEstablished)), (_U_SINT)((err)), (((void *)0)), (_U_UINT)173, UNITY_DISPLAY_STYLE_INT);
 
-  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)166, UNITY_DISPLAY_STYLE_INT);
+  UnityAssertEqualNumber((_U_SINT)((0)), (_U_SINT)((result)), (((void *)0)), (_U_UINT)174, UNITY_DISPLAY_STYLE_INT);
 
  }
 
