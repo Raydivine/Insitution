@@ -41,8 +41,11 @@ char* GlobalOrderError;
 extern void setUp(void);
 extern void tearDown(void);
 extern void test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC(void);
-extern void test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0(void);
-extern void test_Institution_select_that_can_slect_the_school_InstitutionTypr(void);
+extern void test_isUniversityCollege_given_TARUC_UTAR_should_return_1_and_return_0(void);
+extern void test_isUniversityCollege_given_TARUC_UTAR_request_college_should_return_0(void);
+extern void test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_should_return_1(void);
+extern void test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCollege_should_return_3(void);
+extern void test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception(void);
 
 
 //=======Mock Management=====
@@ -81,9 +84,12 @@ int main(void)
 {
   Unity.TestFile = "test_Institution.c";
   UnityBegin();
-  RUN_TEST(test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC, 16);
-  RUN_TEST(test_isUniversityCollege_given_TARUC_UARC_should_return_1_and_return_0, 51);
-  RUN_TEST(test_Institution_select_that_can_slect_the_school_InstitutionTypr, 75);
+  RUN_TEST(test_Institution_reverse_given_TARC_MMU_should_reverse_become_MMU_TARC, 53);
+  RUN_TEST(test_isUniversityCollege_given_TARUC_UTAR_should_return_1_and_return_0, 76);
+  RUN_TEST(test_isUniversityCollege_given_TARUC_UTAR_request_college_should_return_0, 90);
+  RUN_TEST(test_Institution_select_given_TARUC_and_select_type_as_UniversityCollege_should_return_1, 104);
+  RUN_TEST(test_Institution_select_given_UTAR_MMU_USM_and_select_type_as_UniversityCollege_should_return_3, 119);
+  RUN_TEST(test_wasEstablishedBefore_given_ABC_year_2020_should_throw_exception, 151);
 
   return (UnityEnd());
 }
